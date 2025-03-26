@@ -2,54 +2,75 @@
 #include <vector>
 using namespace std;
 
-class Pedalina {
+class Artikl{
 public:
-    string boja;
-    int kapacitet;
+    string ime;
+    int kolicina;
+    double cijena;
+
+    Artikl(string ime, int kolicina, double cijena){
+        this->ime = ime;
+        this->kolicina = kolicina;
+        this->cijena = cijena;
+    }
 };
 
-class Lokacija {
+
+class Racun {
 public:
-    string ime, prezime;
-    double x, y;
-    vector<Pedalina> predmeti;
+    int broj;
+    double ukupnaCijena;
+    vector<Artikl> v;
+    Racun(int broj){
+        this->broj = broj;
+        ukupnaCijena = 0;
+    }
+    void dodaj(Artikl a){
+        v.push_back(a);
+        ukupnaCijena += a.cijena * a.kolicina;
+    }
+
+};
+
+class Kupac {
+public:
+    Racun racun;
+    Kupac(Racun racun) : racun(racun) {}
 };
 
 
-int main() {
-    int n;
-    cout << "Unesite broj lokacija (N):";
-    cin >> n;
-    vector<Lokacija> lokacije(n);
-    Pedalina pedalina;
-    for (int i = 0; i < n; i++){
-        cout << "Unesite odgovornu osobu i GPS koordinate za " << i + 1 << ". lokaciju:" << endl;
-        cin >> lokacije[i].ime >> lokacije[i].prezime >> lokacije[i].x >> lokacije[i].y;
+int main(){
+
+    Kupac Ante(Racun(1)); // Ante ima račun broj 1
+
+    Ante.racun.dodaj(Artikl("Jabuka", 1, 6)); // 1 kg, 6 kn/kg
+
+    Ante.racun.dodaj(Artikl("Banana", 2, 7.5)); // 2 kg, 7.5 kn/kg
+
+    Ante.racun.dodaj(Artikl("Coca cola 2l", 2, 10)); // 2 boce, 10 kn/boca
+
+    cout << "Ukupno: " << Ante.racun.ukupnaCijena << " kn" << endl; // 41 kn
+
+
+
+    /* U nastavku ispišite koji je najskuplji artikl kojeg je Ante platio
+
+       (naziv i ukupna cijena). Npr.
+
+
+
+       Najskuplje placeni artikl je Coca cola 2l (20kn)
+
+    */
+
+    Artikl najSkuplji = Ante.racun.v[0];
+    for (int i = 1; i < Ante.racun.v.size(); i++) {
+        if (Ante.racun.v[i].cijena * Ante.racun.v[i].kolicina > najSkuplji.cijena * najSkuplji.kolicina)
+            najSkuplji = Ante.racun.v[i];
     }
 
-    int m;
-    cout << " Unesite broj pedalina (M): ";
-    cin >> m;
-
-    for (int i = 0; i < m; i++) {
-        cout << "Unesite redni broj lokacije kojoj pripada " << i + 1 << ". pedalina: ";
-        int lokacija;
-        cin >> lokacija;
-        lokacija--;
-        cout << "Unesite boju i kapacitet pedaline:" << endl;
-        cin >> pedalina.boja >> pedalina.kapacitet;
-        lokacije[lokacija].predmeti.push_back(pedalina);
-    }
-
-    cout << "Ispis lokacija i pedalina:" << endl;
-    for (int i = 0; i < n; i++) {
-        cout << i + 1 << ". " << lokacije[i].x << " " << lokacije[i].y << " " << lokacije[i].ime << " " << lokacije[i].prezime << " ";
-        cout << "- pedaline: ";
-        for (int j = 0; j < lokacije[i].predmeti.size(); j++) {
-            cout << lokacije[i].predmeti[j].boja << " (" << lokacije[i].predmeti[j].kapacitet << ") ";
-        }
-        cout << endl;
-    }
+    cout << "Najskuplje placeni artikl "<< najSkuplji.ime << "(" << najSkuplji.cijena * najSkuplji.kolicina << "kn)";
 
     return 0;
+
 }
