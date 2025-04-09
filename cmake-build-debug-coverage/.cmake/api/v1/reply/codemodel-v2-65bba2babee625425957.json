@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "untitled7::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-untitled7-Debug-45d46b1a79d7e4fdfbee.json",
+					"jsonFile" : "target-untitled7-Debug-8ae9add30a8409d7a5fd.json",
 					"name" : "untitled7",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/HP/CLionProjects/untitled7/cmake-build-debug",
+		"build" : "C:/Users/HP/CLionProjects/untitled7/cmake-build-debug-coverage",
 		"source" : "C:/Users/HP/CLionProjects/untitled7"
 	},
 	"version" : 

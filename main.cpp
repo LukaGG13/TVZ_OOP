@@ -2,75 +2,69 @@
 #include <vector>
 using namespace std;
 
-class Artikl{
+class Stan{
 public:
-    string ime;
-    int kolicina;
-    double cijena;
-
-    Artikl(string ime, int kolicina, double cijena){
-        this->ime = ime;
-        this->kolicina = kolicina;
-        this->cijena = cijena;
+    string vlasnik;
+    int velicina;
+    int brojSoba;
+    Stan(){
+        cout << "stan constructor called\n";
     }
+    ~Stan(){
+        cout << "stan destructor called\n";
+    }
+//    Stan(const Stan&) = default;
+//    Stan(Stan&&) = default;
 };
 
-
-class Racun {
+class Zgrada {
+private:
+    string firma = "";
+    int n;
+    int adr;
+    vector<Stan> v;
 public:
-    int broj;
-    double ukupnaCijena;
-    vector<Artikl> v;
-    Racun(int broj){
-        this->broj = broj;
-        ukupnaCijena = 0;
-    }
-    void dodaj(Artikl a){
-        v.push_back(a);
-        ukupnaCijena += a.cijena * a.kolicina;
+    void setFirma(string firma){
+        if (firma.length() < 5){
+            cout << "ime firme mora biti barem 5 znakova\n";
+            return;
+        }
+        this->firma = firma;
     }
 
-};
+    void setBrojKatova(int n){
+        if (n <= 0){
+            cout << "broj katova mora biti veci od 0\n";
+            return;
+        }
+        this->n = n;
+    }
 
-class Kupac {
-public:
-    Racun racun;
-    Kupac(Racun racun) : racun(racun) {}
-};
+    void setAdresa(int adr){
+        this->adr = adr;
+    }
 
+    void dodajStan1(Stan z){
+        v.push_back(z);
+    }
+
+    void dodajStan2(Stan &z){
+        v.push_back(z);
+    }
+
+    void dodajStan3(Stan *z){
+        v.push_back(*z);
+    }
+};
 
 int main(){
-
-    Kupac Ante(Racun(1)); // Ante ima račun broj 1
-
-    Ante.racun.dodaj(Artikl("Jabuka", 1, 6)); // 1 kg, 6 kn/kg
-
-    Ante.racun.dodaj(Artikl("Banana", 2, 7.5)); // 2 kg, 7.5 kn/kg
-
-    Ante.racun.dodaj(Artikl("Coca cola 2l", 2, 10)); // 2 boce, 10 kn/boca
-
-    cout << "Ukupno: " << Ante.racun.ukupnaCijena << " kn" << endl; // 41 kn
-
-
-
-    /* U nastavku ispišite koji je najskuplji artikl kojeg je Ante platio
-
-       (naziv i ukupna cijena). Npr.
-
-
-
-       Najskuplje placeni artikl je Coca cola 2l (20kn)
-
-    */
-
-    Artikl najSkuplji = Ante.racun.v[0];
-    for (int i = 1; i < Ante.racun.v.size(); i++) {
-        if (Ante.racun.v[i].cijena * Ante.racun.v[i].kolicina > najSkuplji.cijena * najSkuplji.kolicina)
-            najSkuplji = Ante.racun.v[i];
-    }
-
-    cout << "Najskuplje placeni artikl "<< najSkuplji.ime << "(" << najSkuplji.cijena * najSkuplji.kolicina << "kn)";
+    Stan s;
+    Zgrada z;
+    z.dodajStan1(s);
+    z.dodajStan2(s);
+    z.dodajStan3(&s);
+// Što se ispisuje prilikom poziva metoda 1,2 i 3? U kojim slučajevima se stvara novi objekt? Zašto se ispisuje više puta destruktor nego konstruktor?
+    cout << "Hello World!!!";
 
     return 0;
-
 }

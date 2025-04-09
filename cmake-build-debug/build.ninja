@@ -55,8 +55,8 @@ build CMakeFiles/untitled7.dir/VJ1.cpp.obj: CXX_COMPILER__untitled7_unscanned_De
   OBJECT_DIR = CMakeFiles\untitled7.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled7.dir
 
-build CMakeFiles/untitled7.dir/main.cpp.obj: CXX_COMPILER__untitled7_unscanned_Debug C$:/Users/HP/CLionProjects/untitled7/main.cpp || cmake_object_order_depends_target_untitled7
-  DEP_FILE = CMakeFiles\untitled7.dir\main.cpp.obj.d
+build CMakeFiles/untitled7.dir/VJ1-2.cpp.obj: CXX_COMPILER__untitled7_unscanned_Debug C$:/Users/HP/CLionProjects/untitled7/VJ1-2.cpp || cmake_object_order_depends_target_untitled7
+  DEP_FILE = CMakeFiles\untitled7.dir\VJ1-2.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\untitled7.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled7.dir
@@ -69,7 +69,7 @@ build CMakeFiles/untitled7.dir/main.cpp.obj: CXX_COMPILER__untitled7_unscanned_D
 #############################################
 # Link the executable untitled7.exe
 
-build untitled7.exe: CXX_EXECUTABLE_LINKER__untitled7_Debug CMakeFiles/untitled7.dir/VJ1.cpp.obj CMakeFiles/untitled7.dir/main.cpp.obj
+build untitled7.exe: CXX_EXECUTABLE_LINKER__untitled7_Debug CMakeFiles/untitled7.dir/VJ1.cpp.obj CMakeFiles/untitled7.dir/VJ1-2.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled7.dir

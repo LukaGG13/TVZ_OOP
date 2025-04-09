@@ -1,0 +1,109 @@
+        -:    0:Source:C:/Users/HP/CLionProjects/untitled7/VJ1-2.cpp
+        -:    0:Graph:C:\Users\HP\CLionProjects\untitled7\cmake-build-debug-coverage\CMakeFiles\untitled7.dir\VJ1-2.cpp.gcno
+        -:    0:Data:C:\Users\HP\CLionProjects\untitled7\cmake-build-debug-coverage\CMakeFiles\untitled7.dir\VJ1-2.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <iostream>
+        -:    2:#include <vector>
+        -:    3:#include <memory>
+        -:    4:
+        -:    5:using namespace std;
+        -:    6:
+        -:    7:/*
+        -:    8:class Artikl{
+        -:    9:public:
+        -:   10:    string ime;
+        -:   11:    int kolicina;
+        -:   12:    double cijena;
+        -:   13:
+        -:   14:    Artikl(string ime, int kolicina, double cijena){
+        -:   15:        this->ime = ime;
+        -:   16:        this->kolicina = kolicina;
+        -:   17:        this->cijena = cijena;
+        -:   18:    }
+        -:   19:};
+        -:   20:
+        -:   21:
+        -:   22:class Racun {
+        -:   23:public:
+        -:   24:    int broj;
+        -:   25:    double ukupnaCijena;
+        -:   26:    vector<Artikl> v;
+        -:   27:
+        -:   28:    Racun(){
+        -:   29:        broj = -1;
+        -:   30:    }
+        -:   31:
+        -:   32:    Racun(int broj) {
+        -:   33:        this->broj = broj;
+        -:   34:        ukupnaCijena = 0;
+        -:   35:    }
+        -:   36:
+        -:   37:    void dodaj(Artikl a){
+        -:   38:        v.push_back(a);
+        -:   39:        ukupnaCijena += a.cijena * a.kolicina;
+        -:   40:    }
+        -:   41:
+        -:   42:};
+        -:   43:
+        -:   44:class Kupac {
+        -:   45:public:
+        -:   46:    Racun racun;
+        -:   47:    Kupac(Racun racun){
+        -:   48:        this->racun = racun;
+        -:   49:    }
+        -:   50:};
+        -:   51:
+        -:   52:
+        -:   53:int main(){
+        -:   54:
+        -:   55:    Kupac Ante(Racun(1)); // Ante ima račun broj 1
+        -:   56:
+        -:   57:    Ante.racun.dodaj(Artikl("Jabuka", 1, 6)); // 1 kg, 6 kn/kg
+        -:   58:
+        -:   59:    Ante.racun.dodaj(Artikl("Banana", 2, 7.5)); // 2 kg, 7.5 kn/kg
+        -:   60:
+        -:   61:    Ante.racun.dodaj(Artikl("Coca cola 2l", 2, 10)); // 2 boce, 10 kn/boca
+        -:   62:
+        -:   63:    cout << "Ukupno: " << Ante.racun.ukupnaCijena << " kn" << endl; // 41 kn
+        -:   64:
+        -:   65:
+        -:   66:
+        -:   67:    /* U nastavku ispišite koji je najskuplji artikl kojeg je Ante platio
+        -:   68:
+        -:   69:       (naziv i ukupna cijena). Npr.
+        -:   70:
+        -:   71:
+        -:   72:
+        -:   73:       Najskuplje placeni artikl je Coca cola 2l (20kn)
+        -:   74:
+        -:   75:    */
+        -:   76:/*
+        -:   77:
+        -:   78:    Artikl najSkuplji = Ante.racun.v[0];
+        -:   79:    for (int i = 1; i < Ante.racun.v.size(); i++) {
+        -:   80:        if (Ante.racun.v[i].cijena * Ante.racun.v[i].kolicina > najSkuplji.cijena * najSkuplji.kolicina)
+        -:   81:            najSkuplji = Ante.racun.v[i];
+        -:   82:    }
+        -:   83:
+        -:   84:    cout << "Najskuplje placeni artikl "<< najSkuplji.ime << "(" << najSkuplji.cijena * najSkuplji.kolicina << "kn)";
+        -:   85:
+        -:   86:    return 0;
+        -:   87:
+        -:   88:}
+        -:   89:
+        -:   90:*/
+        -:   91:
+        -:   92:
+function main called 1 returned 100% blocks executed 100%
+        1:   93:int main(){
+        1:   94:    unique_ptr<int> p(new int );
+        1:   94-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   94-block  1
+call    3 returned 1
+        -:   95:
+        1:   96:}
+call    0 returned 1
+        1:   96-block  0
